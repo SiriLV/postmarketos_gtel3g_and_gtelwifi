@@ -329,14 +329,14 @@ doas nano /etc/fstab
 
 Добавьте строку (замените UUID и тип файловой системы):
 ```
-UUID=ВАШ-UUID-ЗДЕСЬ  /mnt/usb  exfat  defaults,nofail  0  0
+UUID=ВАШ-UUID-ЗДЕСЬ  /mnt/usb  exfat  defaults,lazytime,noatime,uid=1000,gid=1000,fmask=0022,dmask=0022,nofail,x-systemd.device-timeout=5  0  0
 ```
 
 Примеры для разных файловых систем:
-- **exFAT:** `exfat  defaults,nofail  0  0`
-- **NTFS:** `ntfs-3g  defaults,nofail  0  0`
-- **ext4:** `ext4  defaults,nofail  0  0`
-- **FAT32:** `vfat  defaults,nofail  0  0`
+- **exFAT:** `exfat  defaults,lazytime,noatime,uid=1000,gid=1000,fmask=0022,dmask=0022,nofail,x-systemd.device-timeout=5  0  0`
+- **NTFS:** `ntfs-3g  defaults,lazytime,noatime,uid=1000,gid=1000,fmask=0022,dmask=0022,nofail,x-systemd.device-timeout=5  0  0`
+- **ext4:** `ext4  defaults,lazytime,noatime,uid=1000,gid=1000,fmask=0022,dmask=0022,nofail,x-systemd.device-timeout=5  0  0`
+- **FAT32:** `vfat  defaults,lazytime,noatime,uid=1000,gid=1000,fmask=0022,dmask=0022,nofail,x-systemd.device-timeout=5  0  0`
 
 > Параметр `nofail` предотвращает ошибки загрузки, если карта не вставлена.
 
